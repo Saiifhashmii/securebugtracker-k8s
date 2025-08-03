@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bugtracker-backend
-  labels:
-    app: bugtracker-backend
 spec:
   replicas: 2
   selector:
@@ -15,8 +13,8 @@ spec:
         app: bugtracker-backend
     spec:
       containers:
-      - name: backend
-        image: saiif/securebugtracker-backend:latest   # Jenkins will update this tag
-        ports:
-        - containerPort: 5000
+        - name: bugtracker-backend
+          image: saiif/securebugtracker-backend:latest
+          ports:
+            - containerPort: 5000
 

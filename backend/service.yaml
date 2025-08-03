@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: bugtracker-backend-service
 spec:
+  type: LoadBalancer
   selector:
     app: bugtracker-backend
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 5000
-  type: LoadBalancer
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
 
