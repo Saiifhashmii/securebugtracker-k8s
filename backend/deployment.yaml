@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: bugtracker-backend
+      annotations:
+        restartedAt: "2025-08-03T17:32:00Z"
     spec:
       containers:
         - name: bugtracker-backend
