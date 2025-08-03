@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bugtracker-backend
+  namespace: securebugtracker
+spec:
+  type: LoadBalancer
+  selector:
+    app: bugtracker-backend
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+

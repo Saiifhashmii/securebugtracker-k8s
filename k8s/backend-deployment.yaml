@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bugtracker-backend
+  namespace: securebugtracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bugtracker
+  template:
+    metadata:
+      labels:
+        app: bugtracker
+    spec:
+      containers:
+        - name: bugtracker
+          image: saiif/securebugtracker-backend:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST
+              value: "postgres"
+            - name: POSTGRES_DB
+              value: "bugtracker"
+            - name: POSTGRES_USER
+              value: "admin"
+            - name: POSTGRES_PASSWORD
+              value: "admin123"
+
